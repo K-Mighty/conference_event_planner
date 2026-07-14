@@ -58,10 +58,15 @@ const ConferenceEvent = () => {
           venueItems.forEach((item) => {
             totalCost += item.cost * item.quantity;
           });
+        } else if (section === "av") {
+            avItems.forEach((item) => {
+                totalCost += item.cost * item.quantity;
+            });
         }
         return totalCost;
       };
     const venueTotalCost = calculateTotalCost("venue");
+    const avTotalCost = calculateTotalCost("av");
 
     const navigateToProducts = (idType) => {
         if (idType == '#venue' || idType == '#addons' || idType == '#meals') {
@@ -92,18 +97,18 @@ const ConferenceEvent = () => {
                     (
                         <div className="items-information">
                              <div id="venue" className="venue_container container_main">
-        <div className="text">
+                                <div className="text">
  
-          <h1>Venue Room Selection</h1>
-        </div>
-        <div className="venue_selection">
-          {venueItems.map((item, index) => (
-            <div className="venue_main" key={index}>
-              <div className="img">
-                <img src={item.img} alt={item.name} />
-              </div>
-              <div className="text">{item.name}</div>
-              <div>${item.cost}</div>
+                                    <h1>Venue Room Selection</h1>
+                                </div>
+                                <div className="venue_selection">
+                                {venueItems.map((item, index) => (
+                                    <div className="venue_main" key={index}>
+                                    <div className="img">
+                                        <img src={item.img} alt={item.name} />
+                                    </div>
+                                    <div className="text">{item.name}</div>
+                                    <div>${item.cost}</div>
      <div className="button_container">
         {venueItems[index].name === "Auditorium Hall (Capacity:200)" ? (
 
@@ -178,8 +183,7 @@ const ConferenceEvent = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="total_cost">Total Cost:</div>
-
+                                <div className="total_cost">Total Cost: {avTotalCost}</div>
                             </div>
 
                             {/* Meal Section */}
