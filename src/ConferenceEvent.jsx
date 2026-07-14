@@ -293,7 +293,7 @@ const ConferenceEvent = () => {
                                         />
                                 </div>
                                 <div className="meal_selection">
-                                    {mealItems.map((item, index) => (
+                                    {mealsItems.map((item, index) => (
                                         <div className="meal_item" key={index} style={{ padding: 15 }}>
                                             <div className="inner">
                                                 <input type="checkbox" id={ `meal_${index}` }
